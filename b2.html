@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="insertInfor">
+        <h3>Form Đăng Ký</h3>
+        <label for="studentId">Student Id</label>
+        <input type="studentId" name="studentId" id="studentId"> <br>
+        <label for="studentName">Student Name</label>
+        <input type="studentName" name="studentName" id="studentName"><br>
+        <button id="display">Make</button>
+    </form>
+    <script>
+        let arrStudent = [];
+        let studentId = document.getElementById("studentId");
+        let studentName = document.getElementById("studentName");
+        let display = document.getElementById("display");
+        // Lưu thông tin
+        display.addEventListener("click",()=>{
+            event.preventDefault();
+            let newstudentId = studentId.value;
+            let newstudentName = studentName.value;
+            let newArray = {newstudentId,newstudentName};
+            arrStudent.push(newArray);
+            localStorage.setItem("student",JSON.stringify(arrStudent));
+            studentId.value = "";
+            studentName.value = "";
+        })
+    </script>
+</body>
+</html>
