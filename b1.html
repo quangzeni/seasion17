@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h3>Nhập Thông Tin Người Dùng</h3>
+    <input type="text" name="persionData" id="persionData" placeholder="Nhập tên người dùng">
+    <button id="addId">Thêm</button>
+    <button id="deleteId">Xóa</button>
+    <p id="display"></p>
+    <script>
+        let userName = "";
+        let action = "create";
+        let addId = document.getElementById("addId");
+        let deleteId = document.getElementById("deleteId");
+        let display = document.getElementById("display");
+        // 1 làm thêm người dùng.
+        let addFunction = () => {
+            let persionData = document.getElementById("persionData").value;
+            localStorage.setItem("userName", JSON.stringify(persionData));
+            display.innerText = persionData;
+            document.getElementById("persionData").value = ""
+            addId.innerText = "Sửa";
+        }
+        addId.addEventListener("click", () => {
+            if (addId.innerText == "Thêm") {
+                addFunction();
+            }
+            else {
+                updateFuntion();
+            }
+        })
+        // 2 làm xóa người dùng
+        let deleteFuntion = () => {
+            display.innerText = "";
+            localStorage.removeItem("userName");
+        }
+        deleteId.addEventListener("click", () => {
+            deleteFuntion();
+            addId.innerText = "Thêm";
+            document.getElementById("persionData").value = ""
+        })
+        // 3 sửa người dùng
+        let updateFuntion = () => {
+            addFunction();
+            addId.innerText = "Thêm";
+        }
+    </script>
+</body>
+
+</html>
