@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./categories.css">
+    <title>Catalog Management</title>
+</head>
+
+<body>
+    <form action="#">
+        <label for="catalogId">Catalog Id</label>
+        <input type="text" name="catalogId" id="catalogId" /><br>
+        <label for="catalogName">Catalog Name</label>
+        <input type="text" name="catalogName" id="catalogName"><br>
+        <label for="priority">Priority</label>
+        <input type="number" name="priority" id="priority" /><br>
+        <label for="description">Description</label>
+        <input type="text" name="description" id="description" /><br>
+        <label for="status">Status</label>
+        <input type="radio" name="status" id="active" checked value="Active" /><label for="active">Active</label>
+        <input type="radio" name="status" id="inActive" value="Inactive" /><label for="inActive">Inactive</label><br>
+        <input type="submit" value="Save" id="btnSave" />
+    </form>
+    <hr>
+    <form action="#">
+        <label for="catalogNameSearch">Catalog Name</label>
+        <input type="text" name="catalogNameSearch" id="catalogNameSearch" />
+        <button id="btnSearch">Search</button>
+        <label for="sort">Sort</label>
+        <select name="sort" id="sort" onchange="handSortCatalog()">
+            <option value=""></option>
+            <option value="catalogNameASC">Catalog Name ASC</option>
+            <option value="catalogNameDESC">Catalog Name DESC</option>
+            <option value="priorityASC">Priority ASC</option>
+            <option value="priorityDESC">Priority DESC</option>
+        </select>
+    </form>
+    <hr>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>Catalog Id</th>
+                <th>Catalog Name</th>
+                <th>Priority</th>
+                <th>Description</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="content">
+
+        </tbody>
+    </table>
+    <a href="javascript:previewPage()" id="preview">Preview</a>
+    <ul id="listPages">
+    </ul>
+    <a href="javascript:nextPage()" id="next">Next</a>
+    <script src="./categories.js"></script>
+</body>
+
+</html>
